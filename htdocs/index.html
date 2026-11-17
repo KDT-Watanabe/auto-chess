@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>マネーウォーズ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+<div id="game">
+  <header id="hud">
+    <div class="logo">MONEY<span>WARS</span></div>
+    <div id="track"></div>
+    <div class="hud-right">
+      <div class="life"><img src="img/ic_heart.png" alt=""><b id="life">20</b></div>
+      <button class="ibtn" id="btn-speed" title="戦闘速度">×1</button>
+      <button class="ibtn" id="btn-rank" title="ランキング"><img src="img/ic_trophy.png" alt=""></button>
+      <button class="ibtn" id="btn-help" title="遊び方"><img src="img/ic_scroll.png" alt=""></button>
+    </div>
+  </header>
+
+  <main>
+    <aside id="traits"></aside>
+    <section id="arena">
+      <div id="board">
+        <div class="cells"></div>
+        <div class="layer"></div>
+        <div id="banner"></div>
+        <div id="toast"></div>
+      </div>
+      <div id="bench"></div>
+    </section>
+    <aside id="side">
+      <div id="inspect"></div>
+      <div id="bag">
+        <div class="ptitle"><img src="img/ic_bag.png" alt="">装備</div>
+        <div id="items"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer id="shopbar">
+    <div id="wallet">
+      <div class="lvl"><span class="lvbadge"><small>Lv</small><b id="lv">2</b></span>
+        <div class="expwrap"><div class="expbar"><i id="expbar"></i></div><small id="exptxt"></small></div></div>
+      <button class="sbtn" id="btn-exp"><img src="img/ic_book.png" alt=""><span>EXP</span><em><img src="img/ic_coin.png" alt="">4</em></button>
+      <button class="sbtn" id="btn-reroll"><span class="rr">↻</span><span>更新</span><em><img src="img/ic_coin.png" alt="">2</em></button>
+    </div>
+    <div id="shopcol">
+      <div id="goldtab"><img src="img/ic_coin.png" alt=""><b id="gold">0</b><small id="interest"></small></div>
+      <div id="shop"></div>
+    </div>
+    <div id="actions">
+      <button id="btn-start">FIGHT</button>
+      <button class="sbtn sell" id="btn-sell"><span>売却</span><em id="sellv"></em></button>
+    </div>
+  </footer>
+</div>
+
+<div class="modal" id="m-help"><div class="mbox">
+  <h2>遊び方</h2>
+  <ul>
+    <li>ショップでキャラを買うとベンチへ。選んでから盤面の自陣（下2行）をクリックして配置。</li>
+    <li><img class="ii" src="img/ic_pos_front.png" alt="">前衛＝近接（射程1）／<img class="ii" src="img/ic_pos_back.png" alt="">後衛＝遠距離（射程3）。自陣の上の行が前列。</li>
+    <li>盤面のキャラは全員戦う。敵に近づき、射程に入ると攻撃。EPが溜まると必殺技。</li>
+    <li>同じ絆のキャラを盤面に揃えると絆が発動（2体・4体）。</li>
+    <li>同じキャラ3体で★アップ。勝利で装備を入手、基本装備2つで合成。</li>
+    <li>毎ラウンド 5G＋勝敗1G＋利息（10Gごと+1、最大+5）。EXPでLvを上げると盤面の人数が増える。</li>
+    <li>全12ステージ。4ステージごとにボス。ライフが0で終了。</li>
+  </ul>
+  <button class="mclose">閉じる</button>
+</div></div>
+
+<div class="modal" id="m-rank"><div class="mbox">
+  <h2><img class="ii" src="img/ic_trophy.png" alt="">ランキング</h2>
+  <ol id="rank-list"></ol>
+  <button class="mclose">閉じる</button>
+</div></div>
+
+<div class="modal" id="m-end"><div class="mbox">
+  <h2 id="end-title"></h2>
+  <p id="end-sub"></p>
+  <div class="namerow"><input id="end-name" maxlength="20" value="名無し"><button id="end-save">記録する</button></div>
+  <ol id="end-rank"></ol>
+  <button id="end-retry">もう一度</button>
+</div></div>
+
+<script src="sprites.js?v=6"></script>
+<script src="game.js?v=6"></script>
+</body>
+</html>
